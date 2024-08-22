@@ -1,18 +1,26 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/png" href="" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{% static 'images/Logo.svg' %}"
+    />
     <title>Plane Spotter</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+
     {% block head %} {% endblock %}
   </head>
   <body>
     <header>
       <div class="header-logo-container">
         <a href="/">
-          <img src="" alt="Plane Spotter Logo" />
+          <img src="{% static 'images/Logo.svg' %}" alt="Plane Spotter Logo" />
         </a>
       </div>
       <nav>
