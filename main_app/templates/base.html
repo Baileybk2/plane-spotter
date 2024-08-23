@@ -19,13 +19,12 @@
   <body>
     <header>
       <div class="header-logo-container">
-        <a href="/">
-          <img src="{% static 'images/Logo.svg' %}" alt="Plane Spotter Logo" />
-        </a>
+        <h1>Plane Spotter</h1>
       </div>
       <nav>
         <ul>
           <li><a href="{% url 'plane-index' %}">All Planes</a></li>
+          <li><a href="{% url 'plane-create' %}">Add a Plane</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
         </ul>
       </nav>
