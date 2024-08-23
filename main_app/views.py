@@ -23,7 +23,7 @@ class PlaneCreate(CreateView):
 
 class PlaneUpdate(UpdateView):
     model = Plane
-    fields = ['model', 'category']
+    fields = ['name', 'model', 'category']
 
 class PlaneDelete(DeleteView):
     model = Plane

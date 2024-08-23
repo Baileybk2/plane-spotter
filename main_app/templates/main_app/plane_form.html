@@ -3,7 +3,11 @@
 {% endblock %} {% block content %}
 
 <div class="page-header">
-  <h1>Add a plane</h1>
+  {% if plane %}
+  <h1>Edit {{ plane.name }}</h1>
+  {% else %}
+  <h1>Add a Plane</h1>
+  {% endif %}
 </div>
 
 <form action="" method="post" class="form-container">
