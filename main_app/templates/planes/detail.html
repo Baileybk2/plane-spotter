@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/planes/plane-detail.css' %}" />
+{% endblock %} {% block content %}
+<section class="plane-container">
+  <div class="plane-img">
+    <img src="{% static 'images/Airplane-2.svg' %}" alt="Plane Spotter Logo" />
+  </div>
+  <div class="plane-details">
+    <h1>{{ plane.name }}</h1>
+  </div>
+</section>
+{% endblock %}
