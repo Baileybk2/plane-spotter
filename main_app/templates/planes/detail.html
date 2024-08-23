@@ -7,6 +7,12 @@
   </div>
   <div class="plane-details">
     <h1>{{ plane.name }}</h1>
+    <h2>{{ plane.model }}</h2>
+    <h2>{{ plane.category }}</h2>
+    <div class="plane-actions">
+      <a href="{% url 'plane-update' plane.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'plane-delete' plane.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 {% endblock %}

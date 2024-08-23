@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Plane
 
 def home(request):
@@ -19,5 +19,13 @@ def plane_detail(request, plane_id):
 class PlaneCreate(CreateView):
     model = Plane
     fields = '__all__'
+    success_url = '/planes/'
+
+class PlaneUpdate(UpdateView):
+    model = Plane
+    fields = ['model', 'category']
+
+class PlaneDelete(DeleteView):
+    model = Plane
     success_url = '/planes/'
 
