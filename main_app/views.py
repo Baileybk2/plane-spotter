@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Plane
+from .forms import SightingForm
 
 def home(request):
     return render(request, 'home.html')
@@ -14,7 +15,8 @@ def plane_index(request):
 
 def plane_detail(request, plane_id):
     plane = Plane.objects.get(id=plane_id)
-    return render(request, 'planes/detail.html', {'plane': plane})
+    sighting_form = SightingForm()
+    return render(request, 'planes/detail.html', {'plane': plane, 'sighting_form': sighting_form})
 
 class PlaneCreate(CreateView):
     model = Plane
@@ -29,3 +31,10 @@ class PlaneDelete(DeleteView):
     model = Plane
     success_url = '/planes/'
 
+def add_sighting(request, plane_id):
+    form = SightingForm(request.POST)
+    if form.is_valid():
+        new_sighting = form.save(commit=False)
+        new_sighting.plane_id = plane_id
+        new_sighting.save()
+    return redirect('plane-detail', plane_id=plane_id)

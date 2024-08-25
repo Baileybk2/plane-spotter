@@ -15,4 +15,52 @@
     </div>
   </div>
 </section>
+
+<div class="feedings-toy-container">
+  <section class="feedings">
+    <div class="subsection-title">
+      <h2>Sightings</h2>
+    </div>
+
+    <h3>Add a Sighting</h3>
+    <form
+      action="{% url 'add-sighting' plane.id %}"
+      method="post"
+      class="subsection-content"
+      autocomplete="off"
+    >
+      {% csrf_token %} {{ sighting_form.as_p }}
+      <button type="submit" class="btn submit">Add Sighting</button>
+    </form>
+
+    <h3>Past Sightings</h3>
+    {% if plane.sighting_set.all.count %}
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Location</th>
+          <th>Registration</th>
+          <th>Tracking</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for sighting in plane.sighting_set.all %}
+        <tr>
+          <td>{{sighting.datetime}}</td>
+          <td>{{sighting.location}}</td>
+          <td>{{sighting.registration}}</td>
+          <td>{{sighting.tracking}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="subsection-content">
+      <p>⚠️ {{plane.name}} has not been spotted yet!</p>
+    </div>
+    {% endif %}
+  </section>
+</div>
+
 {% endblock %}

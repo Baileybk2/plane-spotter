@@ -27,12 +27,15 @@ class Plane(models.Model):
         return reverse('plane-detail', kwargs={'plane_id': self.id})
     
 class Sighting(models.Model):
-    datetime = models.DateTimeField(default=timezone.now)
+    datetime = models.DateTimeField(default=timezone.now, verbose_name='Sighting date')
     location = models.TextField(max_length=250)
-    registration = models.URLField(blank=True, null=True)
+    registration = models.CharField(max_length=10, blank=True, null=True)
     tracking = models.URLField(blank=True, null=True)
 
     plane = models.ForeignKey(Plane, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"Spotted on {self.datetime} at {self.location}"
+    
+    class Meta:
+        ordering = ['-datetime']
