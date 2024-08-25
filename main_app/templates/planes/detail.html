@@ -50,7 +50,11 @@
           <td>{{sighting.datetime}}</td>
           <td>{{sighting.location}}</td>
           <td>{{sighting.registration}}</td>
-          <td>{{sighting.tracking}}</td>
+          <td>
+            {% if sighting.tracking %}
+            <a href="{{ sighting.tracking }}" target="_blank">Track</a>
+            {% else %} No tracking available. {% endif %}
+          </td>
         </tr>
         {% endfor %}
       </tbody>
