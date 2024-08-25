@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+from datetime import date
+from django.contrib.auth.models import User
 
 CATEGORY = (
     ('GA', 'General Aviation'),
@@ -19,6 +21,7 @@ class Plane(models.Model):
         choices=CATEGORY, 
         default=CATEGORY[0][0])
     image = models.ImageField(blank=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
