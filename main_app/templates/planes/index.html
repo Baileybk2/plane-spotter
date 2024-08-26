@@ -2,33 +2,35 @@
 <link rel="stylesheet" href="{% static 'css/planes/plane-index.css' %}" />
 {% endblock %} {% block content %}
 
-<section class="page-header">
-  <h1>Plane List</h1>
-  <!-- <img src="{% static 'images/airplane-1.svg' %}" alt="Plane-1" />
+<div class="p-4">
+  <section class="page-header">
+    <h1 class="pt-3 ps-3">Plane List</h1>
+    <!-- <img src="{% static 'images/airplane-1.svg' %}" alt="Plane-1" />
   <img src="{% static 'images/airplane-2.svg' %}" alt="Plane-2" />
   <img src="{% static 'images/airplane-3.svg' %}" alt="Plane-3" /> -->
-</section>
+  </section>
 
-<section class="d-flex flex-wrap justify-content-evenly">
-  {% for plane in planes %}
+  <section class="d-flex flex-wrap align-items-start">
+    {% for plane in planes %}
 
-  <div class="card p-3 m-3 shadow" style="width: 18rem">
-    <img
-      src="{% static 'images/airplane-2.svg' %}"
-      class="card-img-top"
-      alt="Placeholder Airplane"
-    />
-    <div class="card-body">
-      <h5 class="card-title">{{ plane.name }}</h5>
-      <p class="card-text">{{ plane.model }}</p>
-      <p class="card-text">{{ plane.category }}</p>
-      <a href="{% url 'plane-detail' plane.id %}" class="btn btn-primary"
-        >Details</a
-      >
+    <div class="card p-3 m-3 shadow" style="max-width: 18rem; min-width: 15rem">
+      <img
+        style="max-width: 150px"
+        src="{% static 'images/airplane-2.svg' %}"
+        class="card-img-top"
+        alt="Placeholder Airplane"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ plane.name }}</h5>
+        <p class="card-text">{{ plane.model }}</p>
+        <p class="card-text">{{ plane.category }}</p>
+        <a href="{% url 'plane-detail' plane.id %}" class="btn btn-primary"
+          >Details</a
+        >
+      </div>
     </div>
-  </div>
 
-  <!-- <div class="card">
+    <!-- <div class="card">
     <a href="{% url 'plane-detail' plane.id %}">
       <div class="card-content">
         <div class="card-img-container">
@@ -40,7 +42,8 @@
       </div>
     </a>
   </div> -->
-  {% endfor %}
-</section>
+    {% endfor %}
+  </section>
+</div>
 
 {% endblock %}

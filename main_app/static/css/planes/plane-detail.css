@@ -1,4 +1,4 @@
-.plane-container {
+/* .plane-container {
   padding: 35px 30px;
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@
   margin-top: 20px;
 }
 
-.feedings-toy-container {
+.container {
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
@@ -216,4 +216,4 @@
   .feedings-toy-container {
     padding: 0 40px;
   }
-}
+} */

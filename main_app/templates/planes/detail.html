@@ -10,14 +10,18 @@
     <h2>{{ plane.model }}</h2>
     <h2>{{ plane.category }}</h2>
     <div class="plane-actions">
-      <a href="{% url 'plane-update' plane.id %}" class="btn warn">Edit</a>
-      <a href="{% url 'plane-delete' plane.id %}" class="btn danger">Delete</a>
+      <a href="{% url 'plane-update' plane.id %}" class="btn btn-warning"
+        >Edit</a
+      >
+      <a href="{% url 'plane-delete' plane.id %}" class="btn btn-danger"
+        >Delete</a
+      >
     </div>
   </div>
 </section>
 
-<div class="feedings-toy-container">
-  <section class="feedings">
+<div class="sightings-container">
+  <section>
     <div class="subsection-title">
       <h2>Sightings</h2>
     </div>
@@ -30,7 +34,7 @@
       autocomplete="off"
     >
       {% csrf_token %} {{ sighting_form.as_p }}
-      <button type="submit" class="btn submit">Add Sighting</button>
+      <button type="submit" class="btn btn-success">Add Sighting</button>
     </form>
 
     <h3>Past Sightings</h3>
