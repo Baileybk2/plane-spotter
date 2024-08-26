@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
+from django import forms
+from .forms import CustomUserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Plane
@@ -25,9 +26,28 @@ def plane_detail(request, plane_id):
     sighting_form = SightingForm()
     return render(request, 'planes/detail.html', {'plane': plane, 'sighting_form': sighting_form})
 
+class PlaneForm(forms.ModelForm):
+    class Meta:
+        model = Plane
+        fields = ['name', 'model', 'category']
+        widgets = {
+            'name': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter name'
+            }),
+            'model': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter model'
+            }),
+            'category': forms.Select(attrs={
+                'class': 'form-select',
+                'placeholder': 'Enter category'
+            }),
+        }
+
 class PlaneCreate(LoginRequiredMixin, CreateView):
     model = Plane
-    fields = ['name', 'model', 'category']
+    form_class = PlaneForm
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -53,13 +73,15 @@ def add_sighting(request, plane_id):
 def signup(request):
     error_message = ''
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect('plane-index')
         else:
             error_message = 'Invalid sign up - try again'
-    form = UserCreationForm()
+    else:
+        form = CustomUserCreationForm()
+
     context = {'form': form, 'error_message': error_message}
     return render(request, 'signup.html', context)

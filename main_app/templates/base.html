@@ -32,7 +32,9 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <a class="navbar-brand" href="{% url 'plane-index' %}"
+          <a
+            class="navbar-brand text-primary fw-bold"
+            href="{% url 'plane-index' %}"
             >Plane Spotter</a
           >
           {% if user.is_authenticated %}

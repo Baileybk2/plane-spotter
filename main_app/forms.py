@@ -1,5 +1,7 @@
 from django import forms
 from .models import Sighting
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 class SightingForm(forms.ModelForm):
     class Meta:
@@ -32,4 +34,18 @@ class SightingForm(forms.ModelForm):
                    'class': 'form-control',
                }
            )
+        }
+
+class CustomUserCreationForm(UserCreationForm):
+    password1 = forms.CharField(max_length=16, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password cannot exceed 16 letters or numbers'}))
+    password2 = forms.CharField(max_length=16, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    class Meta:
+        model = User
+        fields = ['username', 'password1', 'password2']
+        widgets = {
+            'username': forms.TextInput(
+                attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter username'
+            })
         }

@@ -1,21 +1,33 @@
 {% extends 'base.html' %} {% load static %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 {% endblock %} {% block content %}
-
-<section class="logo-container">
-  <div class="plane-container">
-    <img src="{% static 'images/Airplane-2.svg' %}" alt="Plane Spotter Logo" />
+<div class="row w-100 p-4">
+  <div class="col-6">
+    <section>
+      <div class="d-flex pt-5 justify-content-center align-items-center">
+        <img
+          width="400px"
+          src="{% static 'images/Airplane.svg' %}"
+          alt="Plane Spotter Logo"
+        />
+      </div>
+    </section>
   </div>
-  <h1>Plane Spotter</h1>
-</section>
 
-{% if not user.is_authenticated %}
-<section>
-  <form action="{% url 'home' %}" method="post" class="login">
-    <h1>Login</h1>
-    {% csrf_token %} {{ form.as_p }}
-    <input type="hidden" name="next" value="{{ next }}" />
-    <button type="submit" class="btn submit">Login</button>
-  </form>
-</section>
+  <div class="col-6 pt-5">
+    {% if not user.is_authenticated %}
+    <div class="pt-4 d-flex justify-content-center align-items-center">
+      <section class="card shadow" style="width: 400px">
+        <form action="{% url 'home' %}" method="post" class="login">
+          <h1>Login</h1>
+          {% csrf_token %} {{ form.as_p }}
+          <input type="hidden" name="next" value="{{ next }}" />
+          <button type="submit" class="btn btn-primary w-100 mt-3 btn-lg">
+            Login
+          </button>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
 {% endif %} {% endblock %}

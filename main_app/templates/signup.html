@@ -1,18 +1,58 @@
 {% extends 'base.html' %} {% load static %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/form.css' %}" />
 {% endblock %} {% block content %}
-<div class="page-header">
-  <h1>Sign Up</h1>
-</div>
-{% if error_message %}
-<p class="red-text">{{ error_message }}</p>
-{% endif %}
-<form action="" method="post" class="form-container" autocomplete="off">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-  </table>
-  <button type="submit" class="btn submit">Submit!</button>
-</form>
+<div class="container">
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="card shadow w-50 px-4 my-5 pb-4">
+      <div class="container mt-5 pb-3 text-center">
+        <h1>Sign Up</h1>
+      </div>
+      {% if error_message %}
+      <p class="text-danger">{{ error_message }}</p>
+      {% endif %}
+      <form action="" method="post" class="form-container" autocomplete="off">
+        {% csrf_token %}
 
+        <div class="form-group pb-3">
+          <label for="{{ form.username.id_for_label }}">Username</label>
+          {{ form.username }} {% if form.username.errors %}
+          <div class="text-danger">
+            {% for error in form.username.errors %}
+            <p>{{ error }}</p>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="form-group pb-3">
+          <label for="{{ form.password1.id_for_label }}">Password</label>
+          {{ form.password1 }} {% if form.password1.errors %}
+          <div class="text-danger">
+            {% for error in form.password1.errors %}
+            <p>{{ error }}</p>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="form-group pb-3">
+          <label for="{{ form.password2.id_for_label }}"
+            >Confirm Password</label
+          >
+          {{ form.password2 }} {% if form.password2.errors %}
+          <div class="text-danger">
+            {% for error in form.password2.errors %}
+            <p>{{ error }}</p>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 m-0 btn-lg">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}
