@@ -1,11 +1,27 @@
 {% extends 'base.html' %} {% block content %}
-
-<section class="page-header">
-  <h1>About Plane Spotter</h1>
-</section>
-<hr />
-<p class="page-content">
-  Plane Spotter is an application for aviation enthusiasts! Here, you can add
-  your favorite planes and record their spottings.
-</p>
+<div class="p-4">
+  <section class="page-header">
+    <h1>About Plane Spotter</h1>
+  </section>
+  <hr />
+  <h3 class="page-content">
+    Plane Spotter is an application for aviation enthusiasts! Here, you can add
+    your favorite planes and record their spottings. Below you'll find some
+    helpful links for searching aircraft registration and track logs.
+  </h3>
+  <div class="card shadow" style="width: 18rem">
+    <div class="card-body">
+      <h3 class="card-title">Helpful Links:</h3>
+      <a href="https://www.flightradar24.com" class="card-link" target="_blank"
+        >FlightRadar24</a
+      >
+      <a
+        href="https://registry.faa.gov/aircraftinquiry/"
+        class="card-link"
+        target="_blank"
+        >FAA Registration</a
+      >
+    </div>
+  </div>
+</div>
 {% endblock %}

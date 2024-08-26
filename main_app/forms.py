@@ -11,6 +11,25 @@ class SightingForm(forms.ModelForm):
                 attrs={
                     'placeholder': 'Select a date and time',
                     'type': 'datetime-local',
+                    'class': 'form-control',
                 }
            ),
+           'location': forms.TextInput(
+               attrs={
+                   'placeholder': 'Enter location',
+                   'class': 'form-control',
+               }
+           ),
+           'registration': forms.TextInput(
+               attrs={
+                   'placeholder': 'Enter registration',
+                   'class': 'form-control',
+               }
+           ),
+           'tracking': forms.URLInput(
+               attrs={
+                   'placeholder': 'Enter tracking URL (optional)',
+                   'class': 'form-control',
+               }
+           )
         }
