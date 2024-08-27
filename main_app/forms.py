@@ -18,13 +18,13 @@ class SightingForm(forms.ModelForm):
            ),
            'location': forms.TextInput(
                attrs={
-                   'placeholder': 'Enter location',
+                   'placeholder': 'Enter location (example: KBOS)',
                    'class': 'form-control',
                }
            ),
            'registration': forms.TextInput(
                attrs={
-                   'placeholder': 'Enter registration',
+                   'placeholder': 'Enter full aircraft tail number',
                    'class': 'form-control',
                }
            ),
