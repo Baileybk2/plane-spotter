@@ -29,7 +29,7 @@ def plane_detail(request, plane_id):
 class PlaneForm(forms.ModelForm):
     class Meta:
         model = Plane
-        fields = ['name', 'model', 'category']
+        fields = ['name', 'model', 'category', 'image']
         widgets = {
             'name': forms.TextInput(attrs={
                 'class': 'form-control',
@@ -43,6 +43,11 @@ class PlaneForm(forms.ModelForm):
                 'class': 'form-select',
                 'placeholder': 'Enter category'
             }),
+            'image': forms.URLInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter image URL'
+            }),
+            
         }
 
 class PlaneCreate(LoginRequiredMixin, CreateView):
@@ -55,7 +60,9 @@ class PlaneCreate(LoginRequiredMixin, CreateView):
 
 class PlaneUpdate(LoginRequiredMixin, UpdateView):
     model = Plane
-    fields = ['name', 'model', 'category']
+    form_class = PlaneForm
+
+    # fields = ['name', 'model', 'category', 'image']
 
 class PlaneDelete(LoginRequiredMixin, DeleteView):
     model = Plane

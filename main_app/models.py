@@ -22,7 +22,7 @@ class Plane(models.Model):
         max_length=2, 
         choices=CATEGORY, 
         default=CATEGORY[0][0])
-    image = models.ImageField(blank=True, null=True)
+    image = models.URLField(blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

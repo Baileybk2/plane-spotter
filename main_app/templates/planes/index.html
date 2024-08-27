@@ -5,21 +5,27 @@
 <div class="p-4">
   <section class="page-header">
     <h1 class="pt-3 ps-3">Plane List</h1>
-    <!-- <img src="{% static 'images/airplane-1.svg' %}" alt="Plane-1" />
-  <img src="{% static 'images/airplane-2.svg' %}" alt="Plane-2" />
-  <img src="{% static 'images/airplane-3.svg' %}" alt="Plane-3" /> -->
   </section>
 
   <section class="d-flex flex-wrap align-items-start">
     {% for plane in planes %}
 
     <div class="card p-3 m-3 shadow" style="max-width: 18rem; min-width: 15rem">
+      {% if plane.image %}
+      <img
+        style="max-width: 150px"
+        src="{{ plane.image }}"
+        class="rounded mx-auto d-block"
+        alt="{{ plane.name }}"
+      />
+      {% else %}
       <img
         style="max-width: 150px"
         src="{% static 'images/airplane-2.svg' %}"
-        class="card-img-top"
+        class="rounded mx-auto d-block"
         alt="Placeholder Airplane"
       />
+      {% endif %}
       <div class="card-body">
         <h5 class="card-title">{{ plane.name }}</h5>
         <p class="card-text">{{ plane.model }}</p>
