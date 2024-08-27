@@ -36,6 +36,11 @@
       <section class="p-4">
         <div class="subsection-title">
           <h2>Sightings</h2>
+          <h5>
+            <a href="https://www.flightradar24.com" target="_blank"
+              >FlightRadar24</a
+            >
+          </h5>
         </div>
 
         <div class="accordion" id="accordionExample">
@@ -111,18 +116,9 @@
         </div>
         {% else %}
         <div class="alert alert-warning" role="alert">
-          ⚠️ {{plane.name}} has not been spotted yet.. Check out
-          <a
-            href="https://www.flightradar24.com"
-            class="alert-link"
-            target="_blank"
-            >Flightradar24</a
-          >
-          for tracking!
+          ⚠️ {{plane.name}} has not been spotted yet.. Check out the link above
+          for tracking info!
         </div>
-        <!-- <div class="alert alert-danger">
-          <p>⚠️ {{plane.name}} has not been spotted yet!</p>
-        </div> -->
         {% endif %}
       </section>
     </div>
