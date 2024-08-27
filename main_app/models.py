@@ -6,9 +6,10 @@ from django.contrib.auth.models import User
 
 CATEGORY = (
     ('GA', 'General Aviation'),
+    ('CM', 'Commercial'),
     ('MI', 'Military'),
     ('PR', 'Private'),
-    ('CP', 'Corporite'),
+    ('CP', 'Corporate'),
     ('AG', 'Agricultural'),
     ('SP', 'Sport'),
     ('DR', 'Drone'),
