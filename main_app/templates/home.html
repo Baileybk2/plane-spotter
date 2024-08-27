@@ -1,6 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% block head %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}" />
-{% endblock %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <div class="row w-100 p-4">
   <div class="col-6">
     <section>
@@ -17,7 +15,7 @@
   <div class="col-6 pt-5">
     {% if not user.is_authenticated %}
     <div class="pt-4 d-flex justify-content-center align-items-center">
-      <section class="card shadow" style="width: 400px">
+      <section class="p-3 card shadow" style="width: 400px">
         <form action="{% url 'home' %}" method="post" class="login">
           <h1>Login</h1>
           {% csrf_token %} {{ form.as_p }}

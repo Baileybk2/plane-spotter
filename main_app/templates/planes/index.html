@@ -1,6 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% block head %}
-<link rel="stylesheet" href="{% static 'css/planes/plane-index.css' %}" />
-{% endblock %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 
 <div class="p-4">
   <section class="page-header">
@@ -35,19 +33,6 @@
         >
       </div>
     </div>
-
-    <!-- <div class="card">
-    <a href="{% url 'plane-detail' plane.id %}">
-      <div class="card-content">
-        <div class="card-img-container">
-          <img src="{% static 'images/airplane-2.svg' %}" alt="Plane-1" />
-        </div>
-        <h2 class="card-title">{{ plane.name }}</h2>
-        <h2>{{ plane.model }}</h2>
-        <h2>{{ plane.category }}</h2>
-      </div>
-    </a>
-  </div> -->
     {% endfor %}
   </section>
 </div>
