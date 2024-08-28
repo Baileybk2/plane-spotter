@@ -14,11 +14,11 @@
         />
         {% endif %}
       </div>
-      <div class="plane-details">
+      <div>
         <h1>{{ plane.name }}</h1>
         <h2>{{ plane.model }}</h2>
         <h2>{{ plane.category }}</h2>
-        <div class="plane-actions mt-3">
+        <div class="mt-3">
           <a
             href="{% url 'plane-update' plane.id %}"
             class="btn btn-warning me-2"
@@ -32,9 +32,9 @@
     </section>
   </div>
   <div class="col-6">
-    <div class="sightings-container mt-5">
+    <div class="mt-5">
       <section class="p-4">
-        <div class="subsection-title">
+        <div>
           <h2>Sightings</h2>
           <h5>
             <a href="https://www.flightradar24.com" target="_blank"

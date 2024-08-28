@@ -62,8 +62,6 @@ class PlaneUpdate(LoginRequiredMixin, UpdateView):
     model = Plane
     form_class = PlaneForm
 
-    # fields = ['name', 'model', 'category', 'image']
-
 class PlaneDelete(LoginRequiredMixin, DeleteView):
     model = Plane
     success_url = '/planes/'
