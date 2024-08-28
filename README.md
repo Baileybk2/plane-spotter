@@ -50,6 +50,8 @@ At that point, a drop down form will appear and the user has the option to add a
 
 - Aircraft icons: [SVG repo](https://www.svgrepo.com/)
 
+- Form control to django forms: [Stack Overflow](https://stackoverflow.com/questions/21009540/how-to-add-form-control-to-a-django-form)
+
 - Custom signup-form widget troubleshooting:
 
   [Stack Overflow 1](https://stackoverflow.com/questions/61533472/cant-add-widget-to-usercreationform)
