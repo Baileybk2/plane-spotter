@@ -9,8 +9,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Plane
 from .forms import SightingForm
 
-class Home(LoginView):
-    template_name = 'home.html'
+class Login(LoginView):
+    template_name = 'login.html'
 
 def about(request):
     return render(request, 'about.html')
