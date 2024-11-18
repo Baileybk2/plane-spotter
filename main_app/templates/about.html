@@ -6,38 +6,40 @@
 
   <div class="card shadow card-body">
     <p class="fs-5">
-      An application for aviation enthusiasts! Here, you can add your favorite
-      planes and record their spottings. Some awesome features include photo
-      uploading, live-tracking, and collection logs.
+      Here, you can add your favorite planes and record their spottings. Some
+      awesome features include:
     </p>
-  </div>
-
-  <div class="card shadow card-body">
     <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active">
+        <div class="carousel-item active" data-bs-interval="3000">
+          <h4>Personalized Plane Logs:</h4>
           <img src="/static/images/logs.png" class="d-block w-100" alt="Logs" />
         </div>
-        <div class="carousel-item">
-          <img
-            src="/static/images/add.png"
-            class="d-block w-100 col-6"
-            alt="Add"
-          />
-          <img
-            src="/static/images/sight.png"
-            class="d-block w-100 col-6"
-            alt="Sighting"
-          />
+        <div class="carousel-item" data-bs-interval="3000">
+          <h4>Adding New Planes and Live Sightings:</h4>
+          <div class="d-flex justify-content-center align-items-center">
+            <img
+              src="/static/images/add.png"
+              class="img-fluid col-6"
+              alt="Add"
+            />
+            <img
+              src="/static/images/sight.png"
+              class="img-fluid col-6"
+              alt="Sighting"
+            />
+          </div>
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item" data-bs-interval="3000">
+          <h4>Track Logs:</h4>
           <img
             src="/static/images/track.png"
             class="d-block w-100"
             alt="Track"
           />
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item" data-bs-interval="3000">
+          <h4>Live Tracking:</h4>
           <img
             src="/static/images/flightradar.png"
             class="d-block w-100"
@@ -81,6 +83,15 @@
         class="card-link"
         target="_blank"
         >FAA Registration</a
+      >
+    </div>
+  </div>
+
+  <div class="card shadow">
+    <div class="card-body">
+      <p class="fs-5">Ready to get started?</p>
+      <a href="{% url 'signup' %}" class="btn btn-primary m-0 btn-lg"
+        >Sign Up</a
       >
     </div>
   </div>
